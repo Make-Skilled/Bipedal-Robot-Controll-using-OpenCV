@@ -96,7 +96,7 @@ with mp_hands.Hands(
             if gesture_name in gesture_map:
                 command = gesture_map[gesture_name]
                 if command != last_command and (current_time - last_command_time) > command_cooldown:
-                    ser.write(f"{command}\n".encode())
+                    ser.write(f"{command}\n".encode("UTF-8"))
                     print(f"Sent command to Arduino: {command}")
                     last_command = command
                     last_command_time = current_time
